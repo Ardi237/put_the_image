@@ -1,0 +1,82 @@
+name: Publish Nested If Code Images
+
+on:
+  push:
+    paths:
+      - 'nested-if/source.json'
+      - '.github/workflows/build_nested_if_images.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image library
+        run: python -m pip install Pillow==11.3.0
+      - name: Build plain code PNG files
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image, ImageDraw, ImageFont
+
+          root = Path("nested-if")
+          source = json.loads((root / "source.json").read_text(encoding="utf-8"))
+          font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+          font = ImageFont.truetype(font_path, 24)
+          bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf", 24)
+          margin = 28
+          line_height = 36
+          separator = 24
+
+          for number, blocks in source.items():
+              clean_blocks = []
+              max_width = 480
+              total_height = 2 * margin
+              measure = Image.new("RGB", (1, 1), "white")
+              d = ImageDraw.Draw(measure)
+              for block in blocks:
+                  lines = block["code"].strip().splitlines()
+                  label = block.get("label")
+                  clean_blocks.append((label, lines))
+                  if label:
+                      max_width = max(max_width, int(d.textlength(label, font=bold)) + 2 * margin)
+                      total_height += line_height + 7
+                  for line in lines:
+                      max_width = max(max_width, int(d.textlength(line.expandtabs(4), font=font)) + 2 * margin)
+                  total_height += len(lines) * line_height
+              total_height += separator * (len(clean_blocks) - 1)
+              img = Image.new("RGB", (max_width, total_height), "white")
+              draw = ImageDraw.Draw(img)
+              y = margin
+              for index, (label, lines) in enumerate(clean_blocks):
+                  if label:
+                      draw.text((margin, y), label, font=bold, fill="#111111")
+                      y += line_height + 7
+                  for line in lines:
+                      draw.text((margin, y), line.expandtabs(4), font=font, fill="#111111")
+                      y += line_height
+                  if index < len(clean_blocks)-1:
+                      y += separator
+              img.convert("L").quantize(colors=16).save(root / ("soal_" + number + ".png"), optimize=True)
+          print(f"Generated {len(source)} PNG code images")
+          PY
+      - name: Commit image assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nested-if/soal_*.png
+          if git diff --cached --quiet; then
+            echo "All code images are up-to-date"
+          else
+            git commit -m "Render plain C# code images for Wayground quiz"
+            git push
+          fi
