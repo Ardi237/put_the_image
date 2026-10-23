@@ -1,0 +1,105 @@
+{
+  "10": [
+    {
+      "code": "int x = 20;\nif (x >= 10)\n{\n    Console.Write(\"P\");\n    if (x < 20)\n        Console.Write(\"Q\");\n    else\n        Console.Write(\"R\");\n}\nelse\n    Console.Write(\"S\");"
+    }
+  ],
+  "11": [
+    {
+      "code": "int a = 15;\nint b = 10;\nif (a > 10)\n{\n    if (b >= 10)\n        Console.Write(\"A\");\n    Console.Write(\"B\");\n}\nConsole.Write(\"C\");"
+    }
+  ],
+  "12": [
+    {
+      "code": "if (umur >= 17)\n{\n    if (uang >= 50000)\n        Console.WriteLine(\"Tiket dibeli\");\n    else\n        Console.WriteLine(\"Uang kurang\");\n}\nelse\n    Console.WriteLine(\"Umur kurang\");"
+    }
+  ],
+  "13": [
+    {
+      "code": "if (nilai >= 60)\n{\n    if (absen >= 75)\n    {\n        if (nilai >= 85)\n            Console.WriteLine(\"A\");\n        else\n            Console.WriteLine(\"B\");\n    }\n    else\n        Console.WriteLine(\"C\");\n}\nelse\n    Console.WriteLine(\"D\");"
+    }
+  ],
+  "14": [
+    {
+      "code": "int umur = 18;\nint uang = 40000;\nif (umur >= 17)\n{\n    if (uang >= 50000)\n        Console.WriteLine(\"Berhasil\");\n    else\n        Console.WriteLine(\"Ditolak\");\n}\nelse\n    Console.WriteLine(\"Ditolak\");"
+    }
+  ],
+  "15": [
+    {
+      "code": "int x = 12;\nif (x >= 10)\n{\n    if (x > 15)\n        Console.Write(\"A\");\n    else\n        Console.Write(\"B\");\n}\nelse\n    Console.Write(\"C\");"
+    }
+  ],
+  "16": [
+    {
+      "label": "Program I",
+      "code": "if (umur >= 17)\n{\n    if (uang >= 50000)\n        Console.WriteLine(\"Boleh\");\n    else\n        Console.WriteLine(\"Uang kurang\");\n}\nelse\n    Console.WriteLine(\"Umur kurang\");"
+    },
+    {
+      "label": "Program II",
+      "code": "if (umur >= 17 && uang >= 50000)\n    Console.WriteLine(\"Boleh\");\nelse\n    Console.WriteLine(\"Ditolak\");"
+    }
+  ],
+  "17": [
+    {
+      "code": "int umur = 20;\nint uang = 30000;\nif (umur >= 17)\n    if (uang >= 50000)\n        Console.WriteLine(\"Berhasil\");\n    else\n        Console.WriteLine(\"Umur kurang\");"
+    }
+  ],
+  "18": [
+    {
+      "label": "Pilihan A",
+      "code": "if (id == \"A1\")\n{\n    if (pin == \"1234\")\n        Console.WriteLine(\"Berhasil\");\n    else\n        Console.WriteLine(\"PIN salah\");\n}\nelse\n    Console.WriteLine(\"ID salah\");"
+    },
+    {
+      "label": "Pilihan B",
+      "code": "if (id == \"A1\")\n{\n    if (pin == \"1234\")\n        Console.WriteLine(\"Berhasil\");\n    else\n        Console.WriteLine(\"ID salah\");\n}\nelse\n    Console.WriteLine(\"PIN salah\");"
+    },
+    {
+      "label": "Pilihan C",
+      "code": "if (id == \"A1\")\n{\n    if (pin == \"1234\")\n        Console.WriteLine(\"Berhasil\");\n    else\n        Console.WriteLine(\"PIN salah\");\n}\nelse\n    Console.WriteLine(\"PIN salah\");"
+    },
+    {
+      "label": "Pilihan D",
+      "code": "if (id == \"A1\")\n{\n    if (pin == \"1234\")\n        Console.WriteLine(\"Berhasil\");\n    else\n        Console.WriteLine(\"ID salah\");\n}\nelse\n    Console.WriteLine(\"ID salah\");"
+    }
+  ],
+  "19": [
+    {
+      "code": "int umur = 15;\nint uang = 100000;\nif (umur >= 17)\n{\n    if (uang >= 50000)\n        Console.WriteLine(\"Berhasil\");\n}\nelse\n    Console.WriteLine(\"Gagal\");"
+    }
+  ],
+  "02": [
+    {
+      "code": "if (kondisiA)\n{\n    if (kondisiB)\n    {\n        Console.WriteLine(\"X\");\n    }\n}"
+    }
+  ],
+  "03": [
+    {
+      "code": "if (nilai >= 60)\n{\n    if (kehadiran >= 75)\n        Console.WriteLine(\"Lulus\");\n    else\n        Console.WriteLine(\"Kehadiran kurang\");\n}\nelse\n{\n    Console.WriteLine(\"Nilai kurang\");\n}"
+    }
+  ],
+  "05": [
+    {
+      "code": "int umur = 17;\nint uang = 50000;\nif (umur >= 17)\n{\n    if (uang > 50000)\n        Console.WriteLine(\"Berhasil\");\n    else\n        Console.WriteLine(\"Uang kurang\");\n}\nelse\n    Console.WriteLine(\"Umur kurang\");"
+    }
+  ],
+  "06": [
+    {
+      "code": "int x = 12;\nif (x > 10)\n{\n    Console.Write(\"A\");\n    if (x < 15)\n        Console.Write(\"B\");\n    else\n        Console.Write(\"C\");\n}\nConsole.Write(\"D\");"
+    }
+  ],
+  "07": [
+    {
+      "code": "int nilai = 90;\nint absen = 60;\nif (nilai >= 60)\n{\n    if (absen >= 75)\n    {\n        if (nilai >= 85)\n            Console.WriteLine(\"Sangat Baik\");\n        else\n            Console.WriteLine(\"Lulus\");\n    }\n    else\n        Console.WriteLine(\"Absen Kurang\");\n}\nelse\n    Console.WriteLine(\"Tidak Lulus\");"
+    }
+  ],
+  "08": [
+    {
+      "code": "int a = 8;\nint b = 5;\nif (a > 5)\n{\n    if (b > 5)\n        Console.Write(\"X\");\n    else\n        Console.Write(\"Y\");\n}\nelse\n    Console.Write(\"Z\");\nConsole.Write(\"!\");"
+    }
+  ],
+  "09": [
+    {
+      "code": "int saldo = 80000;\nint harga = 50000;\nbool aktif = false;\nif (saldo >= harga)\n{\n    if (aktif)\n        Console.WriteLine(\"Transaksi berhasil\");\n    else\n        Console.WriteLine(\"Akun tidak aktif\");\n}\nelse\n    Console.WriteLine(\"Saldo kurang\");"
+    }
+  ]
+}
